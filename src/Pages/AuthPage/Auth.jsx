@@ -1,10 +1,32 @@
+import { useState } from "react";
+import SignIn from "../../Components/AuthForm/SignIn";
+import SignUp from "../../Components/AuthForm/SignUp";
 
 const Auth = () => {
-  return (
-    <div>
-       <h2 className="text-2xl py-3 px-5 h-40 font-bold text-blue-500 bg-black">Hello Tailwind CSS</h2>
-    </div>
-  )
-}
+  const [islogin, setislogin] = useState(true);
 
-export default Auth
+  return (
+    <>
+      {islogin ? (
+        <div className="bg-slate-900 w-full h-[100vh] text-white">
+          <div>
+            <h1 className="text-3xl text-bold ps-2 pt-2 ">TechTales</h1>
+          </div>
+          <SignIn onClick={() => {setislogin(false)}} />
+         
+          </div>
+      ) : (
+        <div className="bg-slate-900 w-full h-[100vh] text-white">
+          <div>
+            <h1 className="text-3xl text-bold ps-2 pt-2 ">TechTales</h1>
+          </div>
+         
+        <SignUp onClick={() => {setislogin(true)}} />
+        
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Auth;
